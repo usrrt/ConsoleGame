@@ -20,6 +20,7 @@
     <ClCompile Include="FrameWork\Renderer.c">
       <Filter>Framwork</Filter>
     </ClCompile>
+    <ClCompile Include="FrameWork\Timer.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Type.h">
@@ -30,5 +31,8 @@
     </ClInclude>
     <ClInclude Include="Common.h" />
     <ClInclude Include="FrameWork\Renderer.h" />
+    <ClInclude Include="FrameWork\Timer.h">
+      <Filter>Framwork</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

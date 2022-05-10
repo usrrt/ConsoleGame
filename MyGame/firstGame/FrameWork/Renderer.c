@@ -69,5 +69,5 @@ void Renderer_DrawText(const char* text, int32 numberOfChar)
 	HANDLE backBuffer = s_screens[s_backIndex];
 
 	//2. 백버퍼에 텍스트 출력
-	WriteConsoleA(backBuffer, text, numberOfChar, NULL, NULL);
+	WriteConsoleA(backBuffer, text, numberOfChar, NULL, NULL); //WriteConsoleA 뒤에 A붙은건 멀티바이트 W붙으면 유니코드
 }

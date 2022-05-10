@@ -9,3 +9,8 @@ int main()
 	
 	return App_Run();
 }
+
+/*
+	GetAsyncKeyState?
+	가상키코드
+*/
