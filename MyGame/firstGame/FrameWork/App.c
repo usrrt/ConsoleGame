@@ -84,11 +84,12 @@ void processInput()
 
 }
 
-float elapsedTime;
-bool canShow = false;
+//float elapsedTime;
+//bool canShow = false;
+char str[128];
 void update()
 {
-	elapsedTime += DELTA_TIME;
+	/*elapsedTime += DELTA_TIME;
 
 	if (elapsedTime >= 0.5)
 	{
@@ -99,7 +100,7 @@ void update()
 	if (canShow)
 	{
 		Renderer_DrawText("깜빡이는 텍스트", sizeof("깜빡이는 텍스트"));
-	}
+	}*/
 
 	// 비례식
 	// 프레임 : 시간
@@ -111,20 +112,31 @@ void update()
 	Renderer_DrawText(str, strlen(str));*/
 
 	//Renderer_DrawText("Hello Game", sizeof("Hello Game")); //더이상 화면 깜빡임없음
-
 	//0.5초마다 깜빡이는문구만들기
 
 	// 위쪽화살표가 눌렸는지 안눌렸는지 체크
-	// 
+	// 키가 떼진 상태 → 0x0000
+	// 키가 눌린 상태 → 0x8000
+	if (0x8000 & GetAsyncKeyState(VK_UP))
+	{
+		sprintf_s(str, sizeof(str), "up");
+	}
+	else
+	{
+		sprintf_s(str, sizeof(str), "no up");
+	}
+	// 눌렀다면 "위쪽화살표 눌림"
+	// 놀리지 않았다면 "위쪽화살표 뗌"
 	//short : 2바이트
 	//0000 0000 0000 0000 : 키가 떼진 상태 → 0x0000
 	//1000 0000 0000 0000 : 키가 눌린 상태 → 0x8000
 	//1000 0000 0000 0001 : 키가 계속 눌린 상태 → 0x8001 사실상 이부분은 필요없음
-	GetAsyncKeyState();
+	
 }
 
 void render()
 {
+	Renderer_DrawText(str, strlen(str));
 	Renderer_Flip();
 
 }
